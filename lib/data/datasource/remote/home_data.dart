@@ -7,7 +7,7 @@ class HomeData {
   // Future<Either<StatusRequest,Map>>
   getDataByCountry(String country, int pageSize, int page) async {
     var response = await crud.getData(
-        AppLink.server + "?country=$country&pageSize=$pageSize&page=$page");
+        AppLink.server + "?sources=$country&pageSize=$pageSize&page=$page");
     print(
         "=================================Home_Data=================================$response");
     return response.fold((l) => l, (r) => r);
@@ -16,8 +16,8 @@ class HomeData {
 
   getDataByCategoryAndCountry(
       String category, String? country, int pageSize, int page) async {
-    var response = await crud.getData(AppLink.server +
-        "?country=$country&category=$category&pageSize=$pageSize&page=$page");
+    var response = await crud
+        .getData(AppLink.server + "?q=$category&pageSize=$pageSize&page=$page");
     print(
         "=================================Home_Data=================================$response");
     return response.fold((l) => l, (r) => r);

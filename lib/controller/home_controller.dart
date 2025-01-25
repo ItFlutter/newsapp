@@ -41,7 +41,7 @@ class HomeController extends SharedScrollController {
     listDataByCountry.clear();
     statusRequest = StatusRequest.loading;
     update();
-    var response = await homeData.getDataByCountry("us", 10, page);
+    var response = await homeData.getDataByCountry("bbc-news", 10, page);
     print(
         "=================================Home_Controller=================================$response");
     statusRequest = handlingData(response);
@@ -93,7 +93,7 @@ class HomeController extends SharedScrollController {
   }
 
   Future<void> getMoreDataByCountry() async {
-    var response = await homeData.getDataByCountry("us", 10, page);
+    var response = await homeData.getDataByCountry("bbc-news", 10, page);
     print(
         "=================================Home_Controller=================================$response");
     statusRequest = handlingData(response);
